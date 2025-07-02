@@ -6,9 +6,6 @@ from mcp.server.fastmcp import FastMCP
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 LOG_FILE = os.path.join(ROOT_DIR, "excel-mcp.log")
 
-# Initialize EXCEL_FILES_PATH variable without assigning a value
-EXCEL_FILES_PATH = None
-
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
