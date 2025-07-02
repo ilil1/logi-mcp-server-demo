@@ -5,7 +5,7 @@ startCommand:
   commandFunction:
     # A JS function that produces the CLI command based on the given config to start the MCP on stdio.
     |-
-    (config) => ({ command: 'logi-mcp-server', args: ['sse'] })
+    (config) => ({ command: 'logi-mcp-server', args: ['stdio'] })
   configSchema:
     # JSON Schema defining the configuration options for the MCP.
     type: object
