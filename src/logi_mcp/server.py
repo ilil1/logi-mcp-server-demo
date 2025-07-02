@@ -14,8 +14,15 @@ logging.basicConfig(
 )
 logger = logging.getLogger("logi-mcp")
 
-# Initialize FastMCP server
-mcp = FastMCP("logi-mcp")
+# # Initialize FastMCP server
+# mcp = FastMCP("logi-mcp")
+
+# 포트 및 호스트 환경 변수 읽기
+HOST = os.environ.get("HOST", "0.0.0.0")
+PORT = int(os.environ.get("PORT", 8000))
+
+# MCP 서버 인스턴스 생성 (핵심!)
+mcp = FastMCP(host=HOST,port=PORT)
 
 LARAVEL_API_BASE = "https://api.test-spot.com/api/v1"
 
