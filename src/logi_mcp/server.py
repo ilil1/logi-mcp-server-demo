@@ -88,7 +88,7 @@ async def token_authentication(id: str, password: str, user_type: int):
 async def run_sse():
     """MCP server in SSE mode."""
     try:
-        await mcp.run_sse_async()
+        await mcp.run_streamable_http_async()
     except KeyboardInterrupt:
         logger.info("Server stopped by user")
         await mcp.shutdown()
