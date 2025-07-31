@@ -84,20 +84,6 @@ async def token_authentication(id: str, password: str, user_type: int):
         print("❌ 로그인 실패:", response)
         return {"error": "로그인 실패"}
 
-
-async def run_sse():
-    """MCP server in SSE mode."""
-    try:
-        await mcp.run_sse_async()
-    except KeyboardInterrupt:
-        logger.info("Server stopped by user")
-        await mcp.shutdown()
-    except Exception as e:
-        logger.error(f"Server failed: {e}")
-        raise
-    finally:
-        logger.info("Server shutdown complete")
-
 def run_stdio():
     """MCP server in stdio mode."""
     try:

@@ -1,23 +1,9 @@
 import asyncio
 import typer
 
-from logi_mcp.server import run_sse, run_stdio
+from logi_mcp.server import run_stdio
 
 app = typer.Typer(help="Logi MCP Server")
-
-@app.command()
-def sse():
-    """MCP Server in SSE mode"""
-    try:
-        asyncio.run(run_sse())
-    except KeyboardInterrupt:
-        print("\nShutting down server...")
-    except Exception as e:
-        print(f"\nError: {e}")
-        import traceback
-        traceback.print_exc()
-    finally:
-        print("Service stopped.")
 
 @app.command()
 def stdio():
