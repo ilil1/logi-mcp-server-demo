@@ -12,4 +12,4 @@ COPY src ./src
 RUN pip install --no-cache-dir .
 
 # Default command: run MCP server in stdio mode
-CMD ["logi-mcp-server", "sse"]
+CMD ["logi-mcp-server", "stdio"]
