@@ -22,7 +22,7 @@ HOST = os.environ.get("HOST", "0.0.0.0")
 PORT = int(os.environ.get("PORT", 8000))
 
 # MCP 서버 인스턴스 생성 (핵심!)
-mcp = FastMCP(host=HOST,port=PORT)
+mcp = FastMCP()
 
 LARAVEL_API_BASE = "https://api.test-spot.com/api/v1"
 
@@ -83,6 +83,20 @@ async def token_authentication(id: str, password: str, user_type: int):
     else:
         print("❌ 로그인 실패:", response)
         return {"error": "로그인 실패"}
+
+
+async def run_sse():
+    """MCP server in SSE mode."""
+    try:
+        await mcp.run_sse_async()
+    except KeyboardInterrupt:
+        logger.info("Server stopped by user")
+        await mcp.shutdown()
+    except Exception as e:
+        logger.error(f"Server failed: {e}")
+        raise
+    finally:
+        logger.info("Server shutdown complete")
 
 def run_stdio():
     """MCP server in stdio mode."""
