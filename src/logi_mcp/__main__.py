@@ -19,19 +19,19 @@ def sse():
     finally:
         print("Service stopped.")
 
-@app.command()
-def stdio():
-    """ MCP Server in stdio mode"""
-    try:
-        run_stdio()
-    except KeyboardInterrupt:
-        print("\nShutting down server...")
-    except Exception as e:
-        print(f"\nError: {e}")
-        import traceback
-        traceback.print_exc()
-    finally:
-        print("Service stopped.")
+# @app.command()
+# def stdio():
+#     """ MCP Server in stdio mode"""
+#     try:
+#         run_stdio()
+#     except KeyboardInterrupt:
+#         print("\nShutting down server...")
+#     except Exception as e:
+#         print(f"\nError: {e}")
+#         import traceback
+#         traceback.print_exc()
+#     finally:
+#         print("Service stopped.")
 
 if __name__ == "__main__":
     app()
